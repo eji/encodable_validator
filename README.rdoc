@@ -16,7 +16,7 @@ or
 
 == Version
 
-see LISENCE
+see VERSION
 (using ((<http://semver.org>)) (... possible))
 
 == Contributing to encodable_validator
