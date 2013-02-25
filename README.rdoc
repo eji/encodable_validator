@@ -5,7 +5,7 @@ A string validator for ActiveModel to verify it can be converted to the specifie
 == Install
 
 In your Gemfile:
-  gem 'encodable_validator', :git => "git://github.com/tenderlove/nokogiri.git"
+  gem 'encodable_validator', :git => "git://github.com/eji/encodable_validator.git"
 
 == Usage
 
@@ -17,7 +17,7 @@ or
 == Version
 
 see LISENCE
-(using ((<semantic versioning|http://semver.org/>)) (... possible))
+(using ((<http://semver.org>)) (... possible))
 
 == Contributing to encodable_validator
  
