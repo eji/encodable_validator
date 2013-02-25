@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "encodable_validator"
   gem.homepage = "http://github.com/eji/encodable_validator"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = "A string validator for ActiveModel to verify it can be converted to the specified encodings."
+  gem.description = "A string validator for ActiveModel to verify it can be converted to the specified encodings."
   gem.email = "k.ejiri@gmail.com"
   gem.authors = ["Koji Ejiri"]
   # dependencies defined in Gemfile
