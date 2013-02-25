@@ -5,20 +5,14 @@ A string validator for ActiveModel to verify it can be converted to the specifie
 == Install
 
 In your Gemfile:
-=begin ruby
   gem 'encodable_validator', :git => "git://github.com/tenderlove/nokogiri.git"
-=end
 
 == Usage
 
 In your model:
-=begin ruby
   validates :name, :encodable => {:encodings => [Encoding::EUC_JP, Encoding::ISO_2022_JP]}
-=end
 or 
-=begin ruby
   validates_encodable_of :name, :encodings => [Encoding::EUC_JP, Encoding::ISO_2022_JP]
-=end
 
 == Version
 
