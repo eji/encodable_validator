@@ -13,8 +13,9 @@ module ActiveModel
       def validate_each(record, attr_name, value)
         return if options[:allow_nil] && value.nil?
 
-        unless value.class <= String
+        unless value.respond_to?(:encode)
           record.errors.add(attr_name, "is not encodable object" , options)
+          return
         end
 
         last_enc = nil

@@ -34,11 +34,27 @@ module ActiveModel
           end
         end
 
-        context "passed UTF_8 encoded text that is encodable ISO_2022_JP" do
-          ["\u3041", "\u3042", "\u3043", "\u3044"].each do |char|
+        context "passed empty object" do
+          context 'allow_nil' do
+            before do
+              TestRecord.validates :target_text, :encodable => { :encodings => [Encoding::ASCII] }, :allow_nil => true
+            end
+
             it "valid" do
-              sut = TestRecord.new(char)
+              sut = TestRecord.new(nil)
               sut.should be_valid
+            end
+          end
+
+          context 'not allow_nil' do
+            before do
+              TestRecord.validates :target_text, :encodable => { :encodings => [Encoding::ASCII] }, :allow_nil => false
+            end
+
+            it "invalid" do
+              sut = TestRecord.new(nil)
+              sut.should be_invalid
+              sut.errors[:target_text].should == ["is not encodable object"]
             end
           end
         end
