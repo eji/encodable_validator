@@ -1,0 +1,5 @@
+ja:
+  errors:
+    messages:
+      not_a_encodable_object: "エンコーディングできないオブジェクトです"
+      can_not_be_encoded_to: "%{encoding} にエンコーディングできない文字を含んでいます"
