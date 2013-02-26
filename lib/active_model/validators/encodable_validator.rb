@@ -14,7 +14,7 @@ module ActiveModel
         return if options[:allow_nil] && value.nil?
 
         unless value.respond_to?(:encode)
-          record.errors.add(attr_name, "is not encodable object" , options)
+          record.errors.add(attr_name, :not_a_encodable_object , options)
           return
         end
 
@@ -25,10 +25,14 @@ module ActiveModel
             value.encode(enc)
           end
         rescue Encoding::UndefinedConversionError => e
-          record.errors.add(attr_name, "can not encode to #{last_enc}" , options)
+          record.errors.add(attr_name, :can_not_be_encoded, options.merge(
+            :value => value,
+            :encoding => last_enc
+          ))
           return
         rescue Encoding::InvalidByteSequenceError => e
           # TODO
+          return
         end
       end
     end

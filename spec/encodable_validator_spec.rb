@@ -7,6 +7,7 @@ module ActiveModel
 
     describe "EncodableValidator" do
       before do
+        I18n.backend.reload!
         TestRecord.reset_callbacks(:validate)
       end
 
@@ -29,7 +30,7 @@ module ActiveModel
             it "invalid" do
               sut = TestRecord.new(char)
               sut.should be_invalid
-              sut.errors[:target_text].should == ["can not encode to #{Encoding::ISO_2022_JP}"]
+              sut.errors[:target_text].should == ["included charactors are not encoded to #{Encoding::ISO_2022_JP}"]
             end
           end
         end
@@ -54,7 +55,7 @@ module ActiveModel
             it "invalid" do
               sut = TestRecord.new(nil)
               sut.should be_invalid
-              sut.errors[:target_text].should == ["is not encodable object"]
+              sut.errors[:target_text].should == ["is not a encodable object"]
             end
           end
         end
@@ -65,6 +66,7 @@ module ActiveModel
     # TODO refuctor duplicated test codes
     describe "work with helper method" do
       before do
+        I18n.backend.reload!
         TestRecord.reset_callbacks(:validate)
         TestRecord.validates_encodable_of :target_text, :encodings => [Encoding::ISO_2022_JP]
       end
@@ -74,7 +76,7 @@ module ActiveModel
           it "invalid" do
             sut = TestRecord.new(char)
             sut.should be_invalid
-            sut.errors[:target_text].should == ["can not encode to #{Encoding::ISO_2022_JP}"]
+            sut.errors[:target_text].should == ["included charactors are not encoded to #{Encoding::ISO_2022_JP}"]
           end
         end
       end
