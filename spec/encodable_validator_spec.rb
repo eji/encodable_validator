@@ -35,7 +35,7 @@ module ActiveModel
           end
         end
 
-        context "passed empty object" do
+        context "passed nil" do
           context 'allow_nil' do
             before do
               TestRecord.validates :target_text, :encodable => { :encodings => [Encoding::ASCII] }, :allow_nil => true
@@ -63,7 +63,6 @@ module ActiveModel
 
     end
 
-    # TODO refuctor duplicated test codes
     describe "work with helper method" do
       before do
         I18n.backend.reload!
