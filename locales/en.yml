@@ -3,3 +3,4 @@ en:
     messages:
       not_a_encodable_object: "is not a encodable object"
       can_not_be_encoded: "included charactors are not encoded to %{encoding}"
+      included_invalid_byte_sequences: "included invalid byte sequences"

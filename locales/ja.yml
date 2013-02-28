@@ -3,3 +3,4 @@ ja:
     messages:
       not_a_encodable_object: "エンコーディングできないオブジェクトです"
       can_not_be_encoded_to: "%{encoding} にエンコーディングできない文字を含んでいます"
+      included_invalid_byte_sequences: "不正なバイト列を含んでいます"

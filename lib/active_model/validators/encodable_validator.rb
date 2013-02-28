@@ -18,20 +18,21 @@ module ActiveModel
           return
         end
 
+        src_enc = value.encoding
         last_enc = nil
         begin
           options[:encodings].each do |enc|
             last_enc = enc
-            value.encode(enc)
+            value.encode(enc, src_enc)
           end
-        rescue Encoding::UndefinedConversionError => e
+        rescue Encoding::UndefinedConversionError
           record.errors.add(attr_name, :can_not_be_encoded, options.merge(
             :value => value,
             :encoding => last_enc
           ))
           return
-        rescue Encoding::InvalidByteSequenceError => e
-          # TODO
+        rescue Encoding::InvalidByteSequenceError
+          record.errors.add(attr_name, :included_invalid_byte_sequences, options)
           return
         end
       end

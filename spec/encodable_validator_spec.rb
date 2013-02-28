@@ -59,6 +59,20 @@ module ActiveModel
             end
           end
         end
+
+        context "passed string included invalid byte sequences" do
+          before do
+            TestRecord.validates :target_text, :encodable => { :encodings => [Encoding::UTF_16] }
+            @invalid_char = "\x82\xa0"
+            @invalid_char.should_receive(:encoding).and_return(Encoding::UTF_8)
+          end
+
+          it "invalid" do
+            sut = TestRecord.new(@invalid_char)
+            sut.should be_invalid
+            sut.errors[:target_text].should == ["included invalid byte sequences"]
+          end
+        end
       end
 
     end
