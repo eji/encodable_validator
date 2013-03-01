@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem 'activemodel', '3.2.12'
+gem 'activemodel', '~> 3.2'
 
 group :development do
   gem "rspec", "~> 2.8"
