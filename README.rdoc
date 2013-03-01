@@ -20,7 +20,7 @@ or
 == Version
 
 see VERSION
-(using ((<http://semver.org>)) (... possible))
+(using http://semver.org (... possible))
 
 == Contributing to encodable_validator
  
