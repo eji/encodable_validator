@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{encodable_validator}
-  s.version = "0.0.0"
+  s.name = "encodable_validator"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Koji Ejiri}]
-  s.date = %q{2013-02-25}
-  s.description = %q{TODO: longer description of your gem}
-  s.email = %q{k.ejiri@gmail.com}
+  s.authors = ["Koji Ejiri"]
+  s.date = "2013-03-01"
+  s.description = "A string validator for ActiveModel to verify it can be converted to the specified encodings."
+  s.email = "k.ejiri@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -19,43 +19,52 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     ".rspec",
+    ".travis.yml",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "encodable_validator.gemspec",
+    "lib/active_model/validators/encodable_validator.rb",
     "lib/encodable_validator.rb",
+    "locales/en.yml",
+    "locales/ja.yml",
     "spec/encodable_validator_spec.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/eji/encodable_validator}
-  s.licenses = [%q{MIT}]
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.5}
-  s.summary = %q{TODO: one-line summary of your gem}
+  s.homepage = "http://github.com/eji/encodable_validator"
+  s.licenses = ["MIT"]
+  s.require_paths = ["lib"]
+  s.rubygems_version = "1.8.23"
+  s.summary = "A string validator for ActiveModel to verify it can be converted to the specified encodings."
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<rspec>, ["~> 2.8.0"])
-      s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
-      s.add_development_dependency(%q<bundler>, ["~> 1.2.3"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.8.4"])
-      s.add_development_dependency(%q<simplecov>, [">= 0"])
+      s.add_runtime_dependency(%q<activemodel>, ["= 3.2.12"])
+      s.add_development_dependency(%q<rspec>, ["~> 2.8"])
+      s.add_development_dependency(%q<rdoc>, ["~> 4.0"])
+      s.add_development_dependency(%q<bundler>, ["~> 1.3"])
+      s.add_development_dependency(%q<jeweler>, ["~> 1.8"])
+      s.add_development_dependency(%q<simplecov>, ["~> 0.7"])
     else
-      s.add_dependency(%q<rspec>, ["~> 2.8.0"])
-      s.add_dependency(%q<rdoc>, ["~> 3.12"])
-      s.add_dependency(%q<bundler>, ["~> 1.2.3"])
-      s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
-      s.add_dependency(%q<simplecov>, [">= 0"])
+      s.add_dependency(%q<activemodel>, ["= 3.2.12"])
+      s.add_dependency(%q<rspec>, ["~> 2.8"])
+      s.add_dependency(%q<rdoc>, ["~> 4.0"])
+      s.add_dependency(%q<bundler>, ["~> 1.3"])
+      s.add_dependency(%q<jeweler>, ["~> 1.8"])
+      s.add_dependency(%q<simplecov>, ["~> 0.7"])
     end
   else
-    s.add_dependency(%q<rspec>, ["~> 2.8.0"])
-    s.add_dependency(%q<rdoc>, ["~> 3.12"])
-    s.add_dependency(%q<bundler>, ["~> 1.2.3"])
-    s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
-    s.add_dependency(%q<simplecov>, [">= 0"])
+    s.add_dependency(%q<activemodel>, ["= 3.2.12"])
+    s.add_dependency(%q<rspec>, ["~> 2.8"])
+    s.add_dependency(%q<rdoc>, ["~> 4.0"])
+    s.add_dependency(%q<bundler>, ["~> 1.3"])
+    s.add_dependency(%q<jeweler>, ["~> 1.8"])
+    s.add_dependency(%q<simplecov>, ["~> 0.7"])
   end
 end
 
